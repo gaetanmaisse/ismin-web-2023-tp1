@@ -28,4 +28,11 @@ export class Bookshelf {
   getTotalNumberOfBooks(): number {
     return this.storage.size;
   }
+
+  getBooksPublishedAfter(dateAsString: string): Array<Book> {
+    const date = new Date(dateAsString);
+    return this.getAllBooks()
+      .filter((book) => new Date(book.date) > date)
+      .sort(compareWithTitle);
+  }
 }

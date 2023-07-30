@@ -85,4 +85,16 @@ describe('Bookshelf', () => {
     bookshelf.addBook(aLaRechercheDuTempsPerdu);
     expect(bookshelf.getTotalNumberOfBooks()).toEqual(1);
   });
+
+  it('should return the list of books published after a given date', () => {
+    bookshelf.addBook(theHobbit);
+    bookshelf.addBook(theLordOfTheRings);
+    bookshelf.addBook(hamlet);
+
+    const books = bookshelf.getBooksPublishedAfter('1900');
+
+    expect(books).toEqual(
+      expect.arrayContaining([theLordOfTheRings, theHobbit]),
+    );
+  });
 });
