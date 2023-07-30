@@ -1,8 +1,10 @@
+import { ISBN } from './ISBN';
+
 export interface Book {
   /**
    * International Standard Book Number of the book
    */
-  isbn: string;
+  isbn: ISBN;
 
   /**
    * Title of the book
